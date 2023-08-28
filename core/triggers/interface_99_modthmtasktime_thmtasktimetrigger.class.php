@@ -39,9 +39,11 @@ class Interfacethmtasktimetrigger extends DolibarrTriggers
     {
         global $conf;
 
-        if($action == 'TASK_TIMESPENT_MODIFY') {
+        if($action == 'TASK_TIMESPENT_MODIFY' || $action == 'TIMESPENT_MODIFY') {
 
-            $sql = 'UPDATE '.MAIN_DB_PREFIX.'projet_task_time SET thm = '.(float) GETPOST('timespent_thm').' WHERE rowid = '.$object->timespent_id.';';
+            $tablename = (floatval(DOL_VERSION) > 18) ? 'element_time' : 'projet_task_time';
+
+            $sql = 'UPDATE '.MAIN_DB_PREFIX.$tablename.' SET thm = '.(float) GETPOST('timespent_thm').' WHERE rowid = '.$object->timespent_id.';';
             $resql = $this->db->query($sql);
         }
 

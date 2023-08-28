@@ -51,7 +51,7 @@ class modthmtasktime extends DolibarrModules
 		$this->family = "NextGestion";
 		$this->name = preg_replace('/^mod/i','',get_class($this));
 		$this->description = "Module19054700Desc";
-		$this->version = '1.1';
+		$this->version = '1.2';
 		$this->const_name = 'MAIN_MODULE_'.strtoupper($this->name);
 		$this->special = 0;
 		$this->picto='thmtasktime@thmtasktime';
