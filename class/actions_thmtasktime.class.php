@@ -133,12 +133,15 @@ class Actionsthmtasktime
 			?>
 			<script type="text/javascript">
 		        jQuery(document).ready(function() {
+		        	if($('table:not(.liste) select#userid').length > 0) {
+		        		thmtasktime_getThmUser();
+		        	}
 		            $('table:not(.liste) select#userid').change(function() {
 		                thmtasktime_getThmUser();
 		            });
 		        });
 
-		        function thmtasktime_getThmUser(action){
+		        function thmtasktime_getThmUser(){
 		            var userid     = $('select#userid').val();
 
 		            $.ajax({
